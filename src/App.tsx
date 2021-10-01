@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 
-const socket = new WebSocket("ws://127.0.0.1:8083/ws");
+const socket = new WebSocket('ws://127.0.0.1:8083/ws');
 
 function App() {
   const [message, setMessage] = useState('');
@@ -10,25 +10,30 @@ function App() {
 
   useEffect(() => {
     socket.onopen = () => {
-      setMessage('Connected')
+      setMessage('Connected');
     };
     socket.onmessage = (e) => {
-      setMessage("Get message from server: " + e.data)
+      setMessage('Get message from server: ' + e.data);
     };
     return () => {
-      socket.close()
-    }
+      socket.close();
+    };
   }, []);
 
-  const handleClick = useCallback((e) => {
-    e.preventDefault()
-    socket.send(JSON.stringify({
-      message: inputValue
-    }))
-  }, [inputValue]);
+  const handleClick = useCallback(
+    (e) => {
+      e.preventDefault();
+      socket.send(
+        JSON.stringify({
+          message: inputValue
+        })
+      );
+    },
+    [inputValue]
+  );
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value)
+    setInputValue(e.target.value);
   }, []);
 
   return (
