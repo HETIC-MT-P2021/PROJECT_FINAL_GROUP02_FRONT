@@ -1,3 +1,79 @@
+.full-map {
+  display: flex;
+  background-color: darkgray;
+}
+.infos {
+  background-color: white;
+  margin: 10px;
+  width: 200px;
+}
+.stats {
+  background-color: white;
+  margin: 10px;
+  width: 200px;
+}
+.stats-damages {
+  padding: 15px;
+}
+#map-title {
+  font-weight: bold;
+  margin: 5px;
+}
+.grid {
+  background-color: gray;
+  border-width: 2px;
+  border-color: #aaaaaa;
+  border-style: solid;
+  width: 100px;
+  height: 100px;
+}
+.player-pos {
+  background-color: white;
+  border-color: green;
+}
+.exit-grid {
+  background-color: red;
+}
+.impassable-grid {
+  background-color: black;
+}
+.display-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.border-solid {
+  border-width: 1px;
+  border-color: #aaaaaa;
+  border-style: solid;
+}
+.text-center {
+  text-align: center;
+}
+.progress-bar {
+  background-color: red;
+  width: 80%;
+  height: 16px;
+}
+
+/* Small screen display (mobile, tablet, etc.) */
+@media screen and (max-width: 880px) {
+  .full-map {
+    display: block;
+  }
+  .infos {
+    display: none;
+  }
+  .stats {
+    width: auto;
+  }
+  .stats-content {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
