@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from './view/Map';
+import MapComponent from './view/MapComponent';
 
 export interface Props {}
 
@@ -7,7 +7,7 @@ export const App: React.FunctionComponent<Props> = () => {
   return (
     <div className="App">
       {/* Game Map */}
-      <Map></Map>
+      <MapComponent></MapComponent>
     </div>
   );
 };

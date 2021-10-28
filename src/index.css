@@ -19,7 +19,7 @@
   font-weight: bold;
   margin: 5px;
 }
-.grid {
+.square {
   background-color: gray;
   border-width: 2px;
   border-color: #aaaaaa;
@@ -31,10 +31,10 @@
   background-color: white;
   border-color: green;
 }
-.exit-grid {
+.exit-square {
   background-color: red;
 }
-.impassable-grid {
+.inacessible-square {
   background-color: black;
 }
 .display-flex {
