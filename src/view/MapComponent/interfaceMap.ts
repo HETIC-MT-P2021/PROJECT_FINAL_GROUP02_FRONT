@@ -1,17 +1,23 @@
+export type DungeonParams = {
+  dungeonId: string;
+};
+
 export interface DungeonSquare {
-  x: number;
-  y: number;
-  discorverd: boolean;
-  event: string;
-  entities: string[];
-  players: string[];
-  isExit: boolean;
-  impassable: boolean;
+  Characters: string;
+  DungeonId: number;
+  Entities: string[];
+  Events: string[];
+  Id: number;
+  isDiscorvered: boolean;
+  IsExit: boolean;
+  Impassable: boolean;
+  X: number;
+  Y: number;
 }
 
 export interface SquareCoord {
-  x: number;
-  y: number;
+  X: number;
+  Y: number;
 }
 
 export type Map = DungeonSquare[][];

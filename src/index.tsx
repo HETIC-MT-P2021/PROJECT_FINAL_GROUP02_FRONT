@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
+import Error404 from './view/Error404';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Switch>
+        <Route exact path="/:dungeonId(\d+)" component={App}></Route>
+        <Route component={Error404}></Route>
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
