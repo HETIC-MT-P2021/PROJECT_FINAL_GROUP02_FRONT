@@ -13,6 +13,11 @@
   margin: 10px;
   width: 200px;
 }
+.info-item {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
 .stats {
   background-color: white;
   margin: 10px;
@@ -23,6 +28,7 @@
 }
 #map-title {
   font-weight: bold;
+  font-size: large;
   margin: 5px;
 }
 .square {
@@ -32,15 +38,15 @@
   border-style: solid;
   width: 100px;
   height: 100px;
+  margin: 2px;
 }
 .player-pos {
   background-color: white;
-  border-color: green;
 }
 .exit-square {
   background-color: red;
 }
-.inacessible-square {
+.impassable-square {
   background-color: black;
 }
 .undiscovered-square {

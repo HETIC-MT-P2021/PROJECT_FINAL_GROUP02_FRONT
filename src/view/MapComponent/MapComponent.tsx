@@ -17,7 +17,6 @@ export const MapComponent: React.FunctionComponent<Props> = () => {
   const [isDungeonReady, setIsDungeonReady] = useState(false);
   const [map, setMap] = useState<ReactElement[]>([]);
 
-  // Return number of rows and columns of the map
   function numberOfSquares(dungeonSquares: DungeonSquare[], squareCoord: string): number {
     const axis = squareCoord as keyof SquareCoord;
     const dungeonSquaresAxis = dungeonSquares.map((square) => square[axis]);
@@ -26,12 +25,12 @@ export const MapComponent: React.FunctionComponent<Props> = () => {
 
   function getMap(dungeonSquares: DungeonSquare[], mapSquares: Map): ReactElement[] {
     const map = [];
-    for (let x = 0; x < numberOfSquares(dungeonSquares, 'X'); x++) {
+    for (let y = 0; y < numberOfSquares(dungeonSquares, 'Y'); y++) {
       const lane = [];
-      for (let y = 0; y < numberOfSquares(dungeonSquares, 'Y'); y++) {
-        lane.push(<MapSquare key={x + '' + y} squareX={x} squareY={y} mapSquares={mapSquares}></MapSquare>);
+      for (let x = 0; x < numberOfSquares(dungeonSquares, 'X'); x++) {
+        lane.push(<MapSquare key={y + '' + x} square={mapSquares[y][x]}></MapSquare>);
       }
-      map.push(<tr key={x}>{lane}</tr>);
+      map.push(<tr key={y}>{lane}</tr>);
     }
     return map;
   }
@@ -47,7 +46,6 @@ export const MapComponent: React.FunctionComponent<Props> = () => {
       );
     };
 
-    // TODO: Refacto websokect like onmessage('notif1', event)
     socket.onmessage = (event) => {
       const eventData = JSON.parse(event.data);
       if (eventData.Event == 'EventDungeonSquares') {

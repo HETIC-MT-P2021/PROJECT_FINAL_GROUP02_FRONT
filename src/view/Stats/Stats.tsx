@@ -6,6 +6,7 @@ export const Stats: React.FunctionComponent<Props> = () => {
   return (
     <div className="stats">
       <div>STATS</div>
+
       <div className="stats-content" style={{ margin: 20, marginTop: 30 }}>
         <div className="characters">
           <div className="border-solid" style={{ borderBottomWidth: 0 }}>

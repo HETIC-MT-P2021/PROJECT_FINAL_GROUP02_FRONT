@@ -1,27 +1,28 @@
 import React from 'react';
-import MapSquareLegend from '../MapSquareLegend';
-import { Map } from '../../view/MapComponent/interfaceMap';
+import { DungeonSquare } from '../../view/MapComponent/interfaceMap';
+// import MapSquareLegend from '../MapSquareLegend';
 
 export interface Props {
-  squareX: number;
-  squareY: number;
-  mapSquares: Map;
+  square: DungeonSquare;
 }
 
-export const MapSquare: React.FunctionComponent<Props> = ({ squareX, squareY, mapSquares }) => {
-  function getSquareClasses(x: number, y: number) {
+export const MapSquare: React.FunctionComponent<Props> = ({ square }) => {
+  function getSquareClasses() {
     let classes = 'square ';
-    classes += mapSquares && mapSquares[x][y] && mapSquares[x][y].Characters ? 'player-pos ' : '';
-    classes += mapSquares && mapSquares[x][y] && mapSquares[x][y].IsExit ? 'exit-square ' : '';
-    classes += mapSquares && mapSquares[x][y] && mapSquares[x][y].Impassable ? 'inacessible-square ' : '';
-    // classes += mapSquares && mapSquares[x][y] && ! mapSquares[x][y].isDiscorvered
-    // && ! mapSquares[x][y].Characters && ! mapSquares[x][y].IsExit && ! mapSquares[x][y].Impassable ? 'undiscovered-square ' : '';
+    classes += square.Characters ? 'player-pos ' : '';
+    classes += square.IsExit ? 'exit-square ' : '';
+    classes += square.IsImpassable ? 'impassable-square ' : '';
     return classes;
   }
 
   return (
-    <td className={getSquareClasses(squareX, squareY)}>
-      <MapSquareLegend />
+    <td className={getSquareClasses()}>
+      {!square.Characters && !square.IsExit && !square.IsImpassable && !square.IsDiscovered ? (
+        <span style={{ fontSize: 25 }}>?</span>
+      ) : (
+        <span></span>
+      )}
+      {/* <MapSquareLegend /> */}
     </td>
   );
 };

@@ -8,9 +8,9 @@ export interface DungeonSquare {
   Entities: string[];
   Events: string[];
   Id: number;
-  isDiscorvered: boolean;
+  IsDiscovered: boolean;
   IsExit: boolean;
-  Impassable: boolean;
+  IsImpassable: boolean;
   X: number;
   Y: number;
 }
