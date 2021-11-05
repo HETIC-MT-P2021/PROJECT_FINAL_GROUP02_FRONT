@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useEffect, useState, ReactElement } fro
 import { Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { SocketContext } from '../../context/socket';
-import { DungeonParams, DungeonSquare, Map } from './interfaceMap';
+import { DungeonParams, DungeonSquare, Map, Player } from './interfaceMap';
 import utils from '../../utils/utils';
 import Infos from '../Infos';
 import Stats from '../Stats';
@@ -18,6 +18,7 @@ export const MapComponent: React.FunctionComponent<Props> = () => {
   const [isDungeonReady, setIsDungeonReady] = useState(false);
   const [isDungeonExist, setIsDungeonExist] = useState(true);
   const [map, setMap] = useState<ReactElement[]>([]);
+  const [player, setPlayer] = useState<Player>();
 
   function getMap(dungeonSquares: DungeonSquare[], mapSquares: Map): ReactElement[] {
     const map = [];
@@ -38,6 +39,9 @@ export const MapComponent: React.FunctionComponent<Props> = () => {
 
       const map = getMap(dungeonSquares, mapSquares);
       setMap(map);
+
+      const playerPosition = dungeonSquares.find((square: DungeonSquare) => square.Characters);
+      setPlayer(playerPosition.Characters[0]);
 
       setIsDungeonReady(true);
     }
@@ -100,7 +104,7 @@ export const MapComponent: React.FunctionComponent<Props> = () => {
                     <tbody>{map}</tbody>
                   </table>
                   {/* Stats */}
-                  <Stats />
+                  {player ? <Stats player={player} /> : <div>Stats not available</div>}
                 </div>
               </div>
             </div>

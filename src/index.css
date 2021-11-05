@@ -79,10 +79,18 @@
 .text-center {
   text-align: center;
 }
+
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
 .progress-bar {
-  background-color: red;
+  background-color: green;
+  border-radius: 5px;
   width: 80%;
   height: 16px;
+  margin-right: 4px;
 }
 
 /* Small screen display (mobile, tablet, etc.) */

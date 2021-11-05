@@ -21,3 +21,22 @@ export interface SquareCoord {
 }
 
 export type Map = DungeonSquare[][];
+
+export interface Player {
+  Agility: number;
+  AgilityMax: number;
+  ChosenActionId: number;
+  Endurance: number;
+  EnduranceMax: number;
+  Hitpoints: number;
+  HitpointsMax: number;
+  Id: number;
+  IsAlive: boolean;
+  IsOccupied: true;
+  Name: string;
+  PlayerId: number;
+  Precision: number;
+  PrecisionMax: number;
+  Strength: number;
+  StrengthMax: number;
+}
