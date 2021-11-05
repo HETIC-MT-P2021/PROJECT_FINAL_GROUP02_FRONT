@@ -1,4 +1,18 @@
-import { DungeonSquare, Map } from '../view/MapComponent/interfaceMap';
+import { DungeonSquare, Map, SquareCoord } from '../view/MapComponent/interfaceMap';
+
+function numberOfSquares(dungeonSquares: DungeonSquare[], XorY: string): number {
+  const axis = XorY as keyof SquareCoord;
+  const dungeonSquaresAxis = dungeonSquares.map((square) => square[axis]);
+  return Math.max(...dungeonSquaresAxis) + 1;
+}
+
+function numberOfRows(dungeonSquares: DungeonSquare[], X: string): number {
+  return numberOfSquares(dungeonSquares, X);
+}
+
+function numberOfColumns(dungeonSquares: DungeonSquare[], Y: string): number {
+  return numberOfSquares(dungeonSquares, Y);
+}
 
 function buildMap(dungeonSquares: DungeonSquare[]): Map {
   return dungeonSquares.reduce((map, square) => {
@@ -11,4 +25,8 @@ function buildMap(dungeonSquares: DungeonSquare[]): Map {
   }, [] as Map);
 }
 
-export default { buildMap };
+export default {
+  buildMap,
+  numberOfRows,
+  numberOfColumns
+};

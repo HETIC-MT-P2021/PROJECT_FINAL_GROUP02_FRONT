@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import { SocketContext, socket } from './context/socket';
 import App from './App';
 import Error404 from './view/Error404';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,12 +10,14 @@ import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route exact path="/:dungeonId(\d+)" component={App}></Route>
-        <Route component={Error404}></Route>
-      </Switch>
-    </Router>
+    <SocketContext.Provider value={socket}>
+      <Router>
+        <Switch>
+          <Route exact path="/:dungeonId(\d+)" component={App}></Route>
+          <Route component={Error404}></Route>
+        </Switch>
+      </Router>
+    </SocketContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
