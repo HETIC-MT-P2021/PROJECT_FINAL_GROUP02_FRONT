@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom';
 import { SocketContext } from '../../context/socket';
 import { DungeonParams, DungeonSquare, Map, Player } from './interfaceMap';
 import utils from '../../utils/utils';
-import Infos from '../Infos';
-import Stats from '../Stats';
+import MapInfos from '../MapInfos';
+import PlayerStats from '../PlayerStats';
 import MapSquare from '../MapSquare';
 
 export interface Props {}
@@ -97,14 +97,14 @@ export const MapComponent: React.FunctionComponent<Props> = () => {
               </div>
               <div className="full-map">
                 <div className="map-content">
-                  {/* Infos */}
-                  <Infos />
+                  {/* MapInfos */}
+                  <MapInfos />
                   {/* Map */}
                   <table>
                     <tbody>{map}</tbody>
                   </table>
-                  {/* Stats */}
-                  {player ? <Stats player={player} /> : <div>Stats not available</div>}
+                  {/* PlayerStats */}
+                  {player ? <PlayerStats player={player} /> : <div>Stats not available</div>}
                 </div>
               </div>
             </div>

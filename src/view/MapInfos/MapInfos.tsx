@@ -2,29 +2,29 @@ import React from 'react';
 
 export interface Props {}
 
-export const Infos: React.FunctionComponent<Props> = () => {
+export const MapInfos: React.FunctionComponent<Props> = () => {
   return (
     <div className="infos">
-      <div>INFOS</div>
+      <span>INFOS</span>
 
-      <div style={{ margin: 10, marginTop: 30 }}>
+      <div style={{ margin: 20 }}>
         <div style={{ display: 'flex' }}>
           <div className="info-item" style={{ background: 'red' }}></div>
-          <div>Exit</div>
+          <span>Exit</span>
         </div>
         <div style={{ display: 'flex' }}>
           <div className="info-item" style={{ background: 'black' }}></div>
-          <div>Innacessible</div>
+          <span>Innacessible</span>
         </div>
         <div style={{ display: 'flex' }}>
           <div className="info-item" style={{ background: 'gray' }}>
             ?
           </div>
-          <div>Not discovered</div>
+          <span>Not discovered</span>
         </div>
         <div style={{ display: 'flex' }}>
           <div className="info-item" style={{ background: 'white', borderStyle: 'solid' }}></div>
-          <div>Player</div>
+          <span>Player</span>
         </div>
       </div>
     </div>

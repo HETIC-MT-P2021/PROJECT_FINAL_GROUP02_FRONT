@@ -5,7 +5,7 @@ export interface StatsProps {
   player: Player;
 }
 
-export const Stats: React.FunctionComponent<StatsProps> = ({ player }) => {
+export const PlayerStats: React.FunctionComponent<StatsProps> = ({ player }) => {
   return (
     <div className="stats">
       <span>STATS</span>
