@@ -28,7 +28,7 @@ export const MapInfos: React.FunctionComponent<Props> = () => {
             <span>Exit</span>
           </div>
         </div>
-        
+
         <div className="border-solid" style={{ marginTop: 30, padding: 5 }}>
           <div style={{ display: 'flex' }}>
             <div className="info-item" style={{ background: 'gray' }}>
@@ -57,9 +57,7 @@ export const MapInfos: React.FunctionComponent<Props> = () => {
         </div>
       </div>
 
-      <div style={{ position: 'absolute', bottom: 0, marginBottom: 10 }}>
-        Hover the square to display events.
-       </div>
+      <div style={{ position: 'absolute', bottom: 0, marginBottom: 10 }}>Hover the square to display events.</div>
     </div>
   );
 };

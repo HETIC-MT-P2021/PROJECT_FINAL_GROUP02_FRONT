@@ -18,8 +18,15 @@ export const MapSquare: React.FunctionComponent<Props> = ({ square }) => {
   // Get square's Events & Entities length
   function squareEventsLength() {
     let squareEventsLength = 0;
-    if ((square.Events || square.Entities) && !square.Characters && !square.IsExit && !square.IsImpassable && square.IsDiscovered) {
-      squareEventsLength = (square.Events && square.Events.length || 0) + (square.Entities && square.Entities.length || 0);
+    if (
+      (square.Events || square.Entities) &&
+      !square.Characters &&
+      !square.IsExit &&
+      !square.IsImpassable &&
+      square.IsDiscovered
+    ) {
+      squareEventsLength =
+        ((square.Events && square.Events.length) || 0) + ((square.Entities && square.Entities.length) || 0);
     }
     return squareEventsLength;
   }
@@ -33,17 +40,13 @@ export const MapSquare: React.FunctionComponent<Props> = ({ square }) => {
         <span></span>
       )}
       {/* Square Events and Entites length */}
-      { squareEventsLength() ? (
-        <span style={{ fontSize: 25, position: 'absolute'}}>{ squareEventsLength() }</span>
+      {squareEventsLength() ? (
+        <span style={{ fontSize: 25, position: 'absolute' }}>{squareEventsLength()}</span>
       ) : (
         <span></span>
       )}
       {/* Square Events and Entities onhover */}
-      { squareEventsLength() ? (
-        <MapSquareLegend square={square} />
-      ) : (
-        <span></span>
-      )}
+      {squareEventsLength() ? <MapSquareLegend square={square} /> : <span></span>}
     </td>
   );
 };

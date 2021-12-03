@@ -43,7 +43,7 @@ export const MapComponent: React.FunctionComponent<Props> = () => {
 
       // Get player's current position
       const playerPosition = dungeonSquares.find((square: DungeonSquare) => square && square.Characters);
-      
+
       if (playerPosition) setPlayer(playerPosition.Characters[0]);
 
       setIsDungeonReady(true);

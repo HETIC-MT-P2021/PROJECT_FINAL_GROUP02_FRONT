@@ -22,7 +22,9 @@ export const PlayerStats: React.FunctionComponent<StatsProps> = ({ player }) => 
             {player.Name}
             <div className="progress-bar-container">
               <div className="progress-bar">
-                <div style={{ backgroundColor: playerHitPoints() < 50 ? 'red' : 'green', width: `${playerHitPoints()}%` }}>
+                <div
+                  style={{ backgroundColor: playerHitPoints() < 50 ? 'red' : 'green', width: `${playerHitPoints()}%` }}
+                >
                   <span>{playerHitPoints()}%</span>
                 </div>
               </div>
