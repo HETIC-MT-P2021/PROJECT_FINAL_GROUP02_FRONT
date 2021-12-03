@@ -35,6 +35,7 @@ export const MapComponent: React.FunctionComponent<Props> = () => {
   // Get dungeon squares data from socket
   const getDungeonSquares = useCallback((data) => {
     const dungeonSquares = data;
+
     if (dungeonSquares && dungeonSquares.length) {
       const mapSquares = utils.buildMap(dungeonSquares);
 

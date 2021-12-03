@@ -5,6 +5,10 @@ export interface Props {
   square: DungeonSquare;
 }
 
+const displayDoneEvent = {
+  color: 'red'
+};
+
 export const MapSquareLegend: React.FunctionComponent<Props> = ({ square }) => {
   const [hover, setHover] = useState({ display: 'none' });
 
@@ -19,13 +23,25 @@ export const MapSquareLegend: React.FunctionComponent<Props> = ({ square }) => {
   const squareEventsInfos =
     square.Events &&
     square.Events.map((event: DungeonSquareEvent, index) => {
-      return <div key={index}>{event.Name}</div>;
+      const isEventDone = event.WasActivated && !event.IsAlwaysActive;
+
+      return (
+        <div style={isEventDone ? displayDoneEvent : {}} key={index}>
+          {event.Name}
+        </div>
+      );
     });
   // Entities for square displayed when square hover
   const squareEntitesInfos =
     square.Entities &&
     square.Entities.map((entity: DungeonSquareEntity, index) => {
-      return <div key={index}>{entity.Name}</div>;
+      const isEntityDead = !entity.IsAlive;
+
+      return (
+        <div style={isEntityDead ? displayDoneEvent : {}} key={index}>
+          {entity.Name}
+        </div>
+      );
     });
 
   return (

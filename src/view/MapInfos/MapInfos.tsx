@@ -48,12 +48,6 @@ export const MapInfos: React.FunctionComponent<Props> = () => {
             </div>
             <span>3 Events</span>
           </div>
-          <div style={{ display: 'flex' }}>
-            <div className="info-item" style={{ background: 'gray' }}>
-              4
-            </div>
-            <span>4 Events</span>
-          </div>
         </div>
       </div>
 
