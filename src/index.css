@@ -1,3 +1,116 @@
+.full-map {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5px;
+}
+.map-content {
+  display: flex;
+  background-color: darkgray;
+}
+.infos {
+  background-color: white;
+  margin: 10px;
+  width: 200px;
+}
+.info-item {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.stats {
+  background-color: white;
+  margin: 10px;
+  width: 200px;
+}
+.stats-damages {
+  padding: 15px;
+}
+#map-title {
+  font-weight: bold;
+  font-size: large;
+  margin: 5px;
+}
+.square {
+  position: relative;
+  background-color: gray;
+  border-width: 2px;
+  border-color: #aaaaaa;
+  border-style: solid;
+  width: 100px;
+  height: 100px;
+  margin: 2px;
+}
+.player-pos {
+  background-color: white;
+}
+.exit-square {
+  background-color: red;
+}
+.impassable-square {
+  background-color: black;
+}
+.undiscovered-square {
+  background-color: saddlebrown;
+}
+
+.square-legend {
+  width: 100%;
+  height: 100%;
+}
+.square-legend-content {
+  width: 200px;
+  position: absolute;
+  z-index: 99;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 0 2px 2px grey;
+}
+
+.display-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.border-solid {
+  border-width: 1px;
+  border-color: #aaaaaa;
+  border-style: solid;
+}
+.text-center {
+  text-align: center;
+}
+
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.progress-bar {
+  background-color: gray;
+  border-radius: 5px;
+  width: 135px;
+  height: 16px;
+}
+
+/* Small screen display (mobile, tablet, etc.) */
+@media screen and (max-width: 880px) {
+  .map-content {
+    display: block;
+  }
+  .infos {
+    display: none;
+  }
+  .stats {
+    width: auto;
+  }
+  .stats-content {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
