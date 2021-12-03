@@ -54,11 +54,11 @@
 }
 
 .square-legend {
-  position: relative;
   width: 100%;
   height: 100%;
 }
 .square-legend-content {
+  width: 200px;
   position: absolute;
   z-index: 99;
   background: white;
@@ -86,11 +86,10 @@
   padding: 5px;
 }
 .progress-bar {
-  background-color: green;
+  background-color: gray;
   border-radius: 5px;
-  width: 80%;
+  width: 135px;
   height: 16px;
-  margin-right: 4px;
 }
 
 /* Small screen display (mobile, tablet, etc.) */

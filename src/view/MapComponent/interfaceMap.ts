@@ -5,14 +5,37 @@ export type DungeonParams = {
 export interface DungeonSquare {
   Characters: string;
   DungeonId: number;
-  Entities: string[];
-  Events: string[];
+  Entities: DungeonSquareEntity[];
+  Events: DungeonSquareEvent[];
   Id: number;
   IsDiscovered: boolean;
   IsExit: boolean;
   IsImpassable: boolean;
   X: number;
   Y: number;
+}
+
+export interface DungeonSquareEntity {
+  Agility: number;
+  ChosenActionId: number;
+  Endurance: number;
+  Hitpoints: number;
+  Id: number;
+  IsAlive: boolean;
+  ModelId: number;
+  Name: string;
+  Precision: number;
+  Strength: number;
+}
+
+export interface DungeonSquareEvent {
+  CategoryId: number;
+  Description: string;
+  EventModelId: number;
+  Id: number;
+  IsAlwaysActive: boolean;
+  Name: string;
+  WasActivated: boolean;
 }
 
 export interface SquareCoord {

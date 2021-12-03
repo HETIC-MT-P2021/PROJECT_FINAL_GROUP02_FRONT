@@ -32,6 +32,7 @@ export const MapComponent: React.FunctionComponent<Props> = () => {
     return map;
   }
 
+  // Get dungeon squares data from socket
   const getDungeonSquares = useCallback((data) => {
     const dungeonSquares = data;
     if (dungeonSquares && dungeonSquares.length) {
@@ -40,21 +41,26 @@ export const MapComponent: React.FunctionComponent<Props> = () => {
       const map = getMap(dungeonSquares, mapSquares);
       setMap(map);
 
-      const playerPosition = dungeonSquares.find((square: DungeonSquare) => square.Characters);
-      setPlayer(playerPosition.Characters[0]);
+      // Get player's current position
+      const playerPosition = dungeonSquares.find((square: DungeonSquare) => square && square.Characters);
+      
+      if (playerPosition) setPlayer(playerPosition.Characters[0]);
 
       setIsDungeonReady(true);
     }
   }, []);
 
+  // Update dungeon squares data from socket
   const updateDungeonSquares = useCallback(() => {
     socket.emit('/getDungeonSquares', { message: `${dungeonId}` });
   }, []);
 
+  // Add client to socket room when connection
   const welComeToRoom = useCallback(() => {
     socket.emit('/joinRoom', { message: `${dungeonId}` });
   }, []);
 
+  // Remove client to socket room when disconnection
   const LeaveRoom = useCallback(() => {
     socket.emit('/leaveRoom', { message: `${dungeonId}` });
   }, []);
